@@ -5,15 +5,14 @@ module.exports = {
   get,
 };
 
-let item =
-  {
-    name: "Tom",
-    durability: 50,
-    enhancement: 15
-  }
+let item = {
+  name: "Tom",
+  durability: 50,
+  enhancement: 15,
+};
 
 function succeed(item) {
-  return { ...item};
+  return { ...item };
 }
 
 function fail(item) {
@@ -21,7 +20,7 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item, durability = 100 };
+  return { ...item, durability: 100 };
 }
 
 function get(item) {
