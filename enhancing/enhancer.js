@@ -5,13 +5,10 @@ module.exports = {
   get,
 };
 
-let item = {
-  name: "Tom",
-  durability: 50,
-  enhancement: 15,
-};
-
 function succeed(item) {
+  if (item.enhancement < 20) {
+    return { ...item, enhancement: item.enhancement + 1 };
+  }
   return { ...item };
 }
 
