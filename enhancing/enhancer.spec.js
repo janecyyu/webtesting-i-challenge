@@ -1,6 +1,7 @@
 const { repair } = require("./enhancer.js");
 const { succeed } = require("./enhancer.js");
 const { fail } = require("./enhancer.js");
+const { get } = require("./enhancer.js");
 // test away!
 let item = {
   name: "Tom",
@@ -59,6 +60,27 @@ describe("enhancer", () => {
       const result = fail(greaterEnhance);
       expect(result.durability).toBe(40);
       expect(result.enhancement).toBe(17);
+    });
+  });
+});
+
+describe("enhancer", () => {
+  describe("get", () => {
+    it("when enhancement equals zero, do nothing", () => {
+      let zero = {
+        name: "Tom",
+        durability: 50,
+        enhancement: 0,
+      };
+      const result = get(zero);
+      expect(result.enhancement).toBe(0);
+      expect(result.durability).toBe(50);
+      expect(result.name).toBe("Tom");
+    });
+    it("when enhancement equals zero, do nothing", () => {
+      const result = get(item);
+      expect(result.name).toBe("[+15]Tom");
+      expect(result.durability).toBe(50);
     });
   });
 });
